@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<BorderPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="A.GridItemController"
+        prefWidth="300" >
+    <top>
+        <Label text="Harry Potter" fx:id="label" maxWidth="Infinity" alignment="TOP_CENTER">
+
+        </Label>
+        <TextField fx:id="searchBar">
+
+        </TextField>
+    </top>
+    <center>
+        <ImageView
+        fx:id="gridPoster"
+        preserveRatio="true"
+        fitWidth="300"/>
+    </center>
+    <bottom>
+        <GridPane prefWidth="300">
+            <BorderPane.margin>
+                <Insets top="5" right="5" bottom="5" left="5" />
+            </BorderPane.margin>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
+            </columnConstraints>
+            <children>
+                <ImageView fx:id="buttonLinks"
+                           fitWidth="50"
+                           preserveRatio="true"
+                           GridPane.rowIndex="0" GridPane.columnIndex="0"
+                           onMouseClicked="#starClicked">
+                </ImageView>
+                <ImageView fx:id="buttonMitte"
+                           fitWidth="50"
+                           preserveRatio="true"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1">
+                </ImageView>
+                <ImageView fx:id="buttonRechts"
+                           fitWidth="50"
+                           preserveRatio="true"
+                           GridPane.rowIndex="0" GridPane.columnIndex="2">
+                </ImageView>
+            </children>
+        </GridPane>
+    </bottom>
+
+</BorderPane>
+
