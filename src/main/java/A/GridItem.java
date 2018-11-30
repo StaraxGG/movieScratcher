@@ -1,14 +1,12 @@
 package A;
 
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -16,14 +14,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * An implementation of GridItemRoot
+ * An implementation of GridItem
  * in movieScratcher
  *
  * @author Nicolas
  * @version 1.0
  * @since 2018-Nov-27
  */
-    public class GridItemRoot extends BorderPane implements Initializable {
+    public class GridItem extends BorderPane implements Initializable {
 
     public Label lblMovieTitle;
 
@@ -33,9 +31,9 @@ import java.util.ResourceBundle;
     public ImageView btnStar;
     public ImageView btnCheck;
 
-    public GridItemRoot() {
+    public GridItem() {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-                    "/fxml/gridItemRoot.fxml"));
+                    "/fxml/gridItem.fxml"));
             fxmlLoader.setRoot(this);
             fxmlLoader.setController(this);
 
@@ -51,6 +49,8 @@ import java.util.ResourceBundle;
         btnStar.setImage(new Image("star.png"));
         btnCheck.setImage(new Image("success.png"));
     }
+
+
 
     /**
      * Getter Title

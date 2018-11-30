@@ -1,30 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.geometry.Insets?>
-<BorderPane
+<fx:root type="javafx.scene.layout.BorderPane"
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
-        fx:controller="A.GridItemController"
         prefWidth="300" >
     <top>
-        <Label text="Harry Potter" fx:id="label" maxWidth="Infinity" alignment="TOP_CENTER">
-
+        <Label fx:id="lblMovieTitle" maxWidth="Infinity" alignment="TOP_CENTER">
         </Label>
-        <TextField fx:id="searchBar">
-
-        </TextField>
     </top>
     <center>
         <ImageView
-        fx:id="gridPoster"
-        preserveRatio="true"
-        fitWidth="300"/>
+                fx:id="imgPoster"
+                preserveRatio="true"
+                fitWidth="300"/>
     </center>
     <bottom>
         <GridPane prefWidth="300">
@@ -37,18 +28,17 @@
                 <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
             </columnConstraints>
             <children>
-                <ImageView fx:id="buttonLinks"
+                <ImageView fx:id="btnPlus"
                            fitWidth="50"
                            preserveRatio="true"
-                           GridPane.rowIndex="0" GridPane.columnIndex="0"
-                           onMouseClicked="#starClicked">
+                           GridPane.rowIndex="0" GridPane.columnIndex="0">
                 </ImageView>
-                <ImageView fx:id="buttonMitte"
+                <ImageView fx:id="btnStar"
                            fitWidth="50"
                            preserveRatio="true"
                            GridPane.rowIndex="0" GridPane.columnIndex="1">
                 </ImageView>
-                <ImageView fx:id="buttonRechts"
+                <ImageView fx:id="btnCheck"
                            fitWidth="50"
                            preserveRatio="true"
                            GridPane.rowIndex="0" GridPane.columnIndex="2">
@@ -56,6 +46,5 @@
             </children>
         </GridPane>
     </bottom>
-
-</BorderPane>
+</fx:root>
 
