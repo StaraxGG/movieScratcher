@@ -6,7 +6,7 @@
 <fx:root type="javafx.scene.layout.BorderPane"
          xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
-         prefWidth="500" prefHeight="500">
+         maxWidth="600" prefHeight="800" style="-fx-background-color: #081c24;">
 
     <top>
         <HBox >
@@ -20,7 +20,7 @@
     </top>
     <center>
         <ScrollPane>
-            <GridPane fx:id="layoutCenterGrid" prefHeight="-Infinity" prefWidth="-Infinity">
+            <GridPane fx:id="layoutCenterGrid" prefHeight="-Infinity" prefWidth="600" style="-fx-background-color: #081c24;">
             </GridPane>
         </ScrollPane>
     </center>

@@ -66,6 +66,10 @@ public class Grid extends BorderPane implements Initializable {
         layoutCenterGrid.add(node, column,row);
     }
 
+    public GridPane getGridPane(){
+        return layoutCenterGrid;
+    }
+
     /* ---------------------------------------- S/Getters ----------------------------------------------------------- */
 
 }

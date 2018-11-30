@@ -1,11 +1,15 @@
 package A;
 
+import B.MovieDBBasic;
 import B.MovieFachklasse;
+import com.sun.jmx.remote.internal.ArrayQueue;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.util.LinkedList;
 
 
 public class Main extends Application {
@@ -16,46 +20,49 @@ public class Main extends Application {
         MovieFachklasse f = new MovieFachklasse();
         Grid mainWindow = new Grid();
 
-
-        GridItem fightclub = new GridItem();
-        fightclub.setImgPoster(f.getPoster("Fight Club"));
-        fightclub.setLblMovieTitle(f.getTitle("Fight Club"));
-        mainWindow.addToGrid(fightclub,0,0);
-
-        GridItem americanhustle = new GridItem();
-        americanhustle.setImgPoster(f.getPoster("american hustle"));
-        americanhustle.setLblMovieTitle(f.getTitle("american hustle"));
-        mainWindow.addToGrid(americanhustle,1,0);
-
-        GridItem departed = new GridItem();
-        departed.setImgPoster(f.getPoster("departed"));
-        departed.setLblMovieTitle(f.getTitle("departed"));
-        mainWindow.addToGrid(departed,2,0);
-
-        GridItem fightclub2 = new GridItem();
-        fightclub2.setImgPoster(f.getPoster("Fight Club"));
-        fightclub2.setLblMovieTitle(f.getTitle("Fight Club"));
-        mainWindow.addToGrid(fightclub2,0,1);
-
-        GridItem americanhustle2 = new GridItem();
-        americanhustle2.setImgPoster(f.getPoster("american hustle"));
-        americanhustle2.setLblMovieTitle(f.getTitle("american hustle"));
-        mainWindow.addToGrid(americanhustle2,1,1);
-
-        GridItem departed2 = new GridItem();
-        departed2.setImgPoster(f.getPoster("departed"));
-        departed2.setLblMovieTitle(f.getTitle("departed"));
-        mainWindow.addToGrid(departed2,2,1);
+        LinkedList<MovieDBBasic> hp = f.getResults("Harry Potter");
+        fillGrid(getGridItems(hp),mainWindow);
 
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(new ScrollPane(mainWindow), -40, -40));
-        //primaryStage.sizeToScene();
+        ScrollPane main = new ScrollPane(mainWindow);
+        main.setStyle("-fx-background-color: #081c24");
+
+        primaryStage.setScene(new Scene(main, -40, -40));
+        primaryStage.sizeToScene();
         //primaryStage.setMaxWidth(300);
-        //primaryStage.setResizable(false);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    private LinkedList<GridItem> getGridItems(LinkedList<MovieDBBasic> mb){
+        //todo change size
+        LinkedList<GridItem> results = new LinkedList<GridItem>();
+        for (int i=0; i<10; i++){
+            GridItem gi = new GridItem();
+            gi.setImgPoster(mb.get(i).getPoster());
+            gi.setLblMovieTitle(mb.get(i).getName());
+            results.add(gi);
+        }
+        return results;
+    }
+
+    private void fillGrid(LinkedList<GridItem> gr, Grid window){
+        //todo use linkedlist like queue
+        int i = 0;
+
+        while(gr.size() > 2){
+            window.getGridPane().addRow(i,gr.poll(),gr.poll(),gr.poll());
+            i++;
+        }
+        if(gr.size() > 1){
+            window.getGridPane().addRow(i,gr.poll(),gr.poll());
+        }
+        else if(gr.size() == 1){
+            window.getGridPane().addRow(i,gr.poll());
+        }
     }
 }

@@ -6,6 +6,7 @@ import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 
 /**
  * An implementation of C.MovieData
@@ -49,6 +50,17 @@ public class MovieData {
     public MovieDb getMovie(String movieTitle){
         MovieResultsPage searchResults = search.searchMovie(movieTitle, null, "eng",true,0);
         return searchResults.getResults().get(0);
+    }
+
+    /**
+     * Returns MovieResultsPage Objekt with results in it.
+     * @param name    search Title
+     * @return  URL to movie cover
+     * @throws FileNotFoundException
+     */
+
+    public MovieResultsPage searchMovies(String name){
+        return search.searchMovie(name, null, "eng",true,0);
     }
 
     /* ---------------------------------------- S/Getters ----------------------------------------------------------- */

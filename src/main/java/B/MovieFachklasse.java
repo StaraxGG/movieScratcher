@@ -2,10 +2,14 @@ package B;
 
 import C.MovieData;
 import info.movito.themoviedbapi.model.MovieDb;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import javafx.scene.image.Image;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * An implementation of B.MovieFachklasse
@@ -37,25 +41,20 @@ public class MovieFachklasse implements Fachklasse {
 
     /* ---------------------------------------- Methods ------------------------------------------------------------- */
 
-    public Image getPoster(String movieName) {
-        MovieDb mov = mData.getMovie(movieName);
-        String posterKey = mov.getPosterPath();
-        return new Image("https://image.tmdb.org/t/p/w500"+posterKey);
-    }
 
-    public Image getBackdrop(String movieName) {
-        MovieDb mov = mData.getMovie(movieName);
-        String posterKey = mov.getBackdropPath();
-        return new Image("https://image.tmdb.org/t/p/w500"+posterKey);
-    }
+    public LinkedList<MovieDBBasic> getResults(String name){
+         List<MovieDb> mrp = mData.searchMovies(name).getResults();
+        LinkedList<MovieDBBasic> results = new LinkedList<MovieDBBasic>();
 
-    public String getTitle(String movieName){
-        MovieDb mov = mData.getMovie(movieName);
-        return mov.getTitle();
-    }
+         int items = 10;
+         if(mrp.size() < 10){
+             items = mrp.size();
+         }
+         for(int i=0; i<items; i++){
+             results.add(new MovieDBBasic(mrp.get(i)));
+         }
 
-    public int getMovieYear(String movieName) {
-        return 0;
+         return results;
     }
 
 

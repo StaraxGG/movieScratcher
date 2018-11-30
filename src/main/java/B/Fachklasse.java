@@ -1,10 +1,7 @@
 package B;
 
-import javafx.scene.image.Image;
+import java.util.LinkedList;
 
 public interface Fachklasse {
-    Image getPoster (String movieName);
-    Image getBackdrop (String movieName);
-    String getTitle (String movieName);
-    int getMovieYear(String movieName);
+    LinkedList<MovieDBBasic> getResults(String name);
 }
