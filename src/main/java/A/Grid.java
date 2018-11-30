@@ -1,5 +1,9 @@
 package A;
 
+import B.MovieDBBasic;
+import B.MovieFachklasse;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -10,6 +14,7 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 /**
@@ -58,7 +63,18 @@ public class Grid extends BorderPane implements Initializable {
     }
 
 
+
+
     public void initialize(URL location, ResourceBundle resources) {
+        btnSearch.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                layoutCenterGrid.getChildren().clear();
+                String search = txtSearch.getText();
+                MovieFachklasse f = new MovieFachklasse();
+                LinkedList<MovieDBBasic> hp = f.getResults(search);
+                GUITools.listToGrid(hp,Grid.this);
+            }
+        });
 
     }
 

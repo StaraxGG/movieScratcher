@@ -21,7 +21,8 @@ public class Main extends Application {
         Grid mainWindow = new Grid();
 
         LinkedList<MovieDBBasic> hp = f.getResults("Harry Potter");
-        fillGrid(getGridItems(hp),mainWindow);
+        GUITools.listToGrid(hp,mainWindow);
+
 
         primaryStage.setTitle("Hello World");
         ScrollPane main = new ScrollPane(mainWindow);
@@ -36,33 +37,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    private LinkedList<GridItem> getGridItems(LinkedList<MovieDBBasic> mb){
-        //todo change size
-        LinkedList<GridItem> results = new LinkedList<GridItem>();
-        for (int i=0; i<10; i++){
-            GridItem gi = new GridItem();
-            gi.setImgPoster(mb.get(i).getPoster());
-            gi.setLblMovieTitle(mb.get(i).getName());
-            results.add(gi);
-        }
-        return results;
-    }
-
-    private void fillGrid(LinkedList<GridItem> gr, Grid window){
-        //todo use linkedlist like queue
-        int i = 0;
-
-        while(gr.size() > 2){
-            window.getGridPane().addRow(i,gr.poll(),gr.poll(),gr.poll());
-            i++;
-        }
-        if(gr.size() > 1){
-            window.getGridPane().addRow(i,gr.poll(),gr.poll());
-        }
-        else if(gr.size() == 1){
-            window.getGridPane().addRow(i,gr.poll());
-        }
     }
 }
