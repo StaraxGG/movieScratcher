@@ -36,10 +36,12 @@ public class GUITools {
     public static LinkedList<GridItem> getGridItems(LinkedList<MovieDBBasic> mb){
         //todo change size
         LinkedList<GridItem> results = new LinkedList<GridItem>();
-        for (int i=0; i<10; i++){
+        int max = mb.size();
+        for (int i=0; i<max; i++){
             GridItem gi = new GridItem();
             gi.setImgPoster(mb.get(i).getPoster());
             gi.setLblMovieTitle(mb.get(i).getName());
+            gi.setLblReviews(mb.get(i).getReview());
             results.add(gi);
         }
         return results;

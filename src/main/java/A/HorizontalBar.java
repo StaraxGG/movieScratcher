@@ -63,19 +63,33 @@ public class HorizontalBar extends HBox {
         items = GUITools.getGridItems(movieList);
         max = items.size();
 
-        for(int i = 0; i<2;i++){
+        if(max<5){
+            for(int i = 0; i<max;i++){
+                movieBar.getChildren().add(items.get(i));
+            }
+        }
+        for(int i = 0; i<5;i++){
             movieBar.getChildren().add(items.get(i));
         }
+
     }
 
 
     /* ---------------------------------------- Methods ------------------------------------------------------------- */
 
     public void pushForward(){
-        if(index+2 < max){
+        index++;
+        int endIndex = index + 5;
+
+        if(endIndex < max){
             movieBar.getChildren().clear();
-            index++;
-            for(int i = index; i<(index+2);i++){
+            for(int i = index; i<endIndex;i++){
+                movieBar.getChildren().add(items.get(i));
+            }
+        }
+        else if (!(max-index < 5)){
+            movieBar.getChildren().clear();
+            for(int i = index; i<(max);i++){
 
                 movieBar.getChildren().add(items.get(i));
             }
@@ -86,7 +100,7 @@ public class HorizontalBar extends HBox {
         if(index-1 >= 0){
             movieBar.getChildren().clear();
             index--;
-            for(int i = index; i<(index+2);i++){
+            for(int i = index; i<(index+5);i++){
                 movieBar.getChildren().add(items.get(i));
             }
         }

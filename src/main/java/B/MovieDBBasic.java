@@ -22,6 +22,8 @@ public class MovieDBBasic {
     private Image backdrop;
     private int movieID;
 
+    private float review;
+
     private MovieDb movieDb;
 
 
@@ -47,6 +49,7 @@ public class MovieDBBasic {
         poster = new Image("https://image.tmdb.org/t/p/w500"+mdb.getPosterPath());
         backdrop = new Image("https://image.tmdb.org/t/p/w500"+mdb.getBackdropPath());
         movieID = mdb.getId();
+        review = mdb.getVoteAverage();
     }
 
     /* ---------------------------------------- S/Getters ----------------------------------------------------------- */
@@ -89,5 +92,13 @@ public class MovieDBBasic {
 
     public void setMovieDb(MovieDb movieDb) {
         this.movieDb = movieDb;
+    }
+
+    public float getReview() {
+        return review;
+    }
+
+    public void setReview(float review) {
+        this.review = review;
     }
 }

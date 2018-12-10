@@ -6,19 +6,36 @@
 <fx:root type="javafx.scene.layout.HBox"
          xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
-         maxWidth="420" style="-fx-background-color: #081c24;">
+         maxWidth="420" maxHeight="390" style="-fx-background-color: #081c24;">
 
     <Button
-    fx:id="btnBack" text="w" onAction="#pushBack">
+    fx:id="btnBack" text="w" onAction="#pushBack" maxHeight="Infinity" prefHeight="Infinity"
+    style="-fx-background-color:
+        #3c7fb1,
+        linear-gradient(#081c24,#01d277),
+        linear-gradient(#01d277 0%,#081c24 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 20 3 20;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;">
     </Button>
 
-    <HBox fx:id="movieBar" >
-
+    <HBox fx:id="movieBar">
     </HBox>
 
 
     <Button
-    fx:id="btnForward" text="v" onAction="#pushForward">
+    fx:id="btnForward" text="v" onAction="#pushForward" maxHeight="Infinity" prefHeight="Infinity"
+    style="-fx-background-color:
+        #3c7fb1,
+        linear-gradient(#081c24,#01d277),
+        linear-gradient(#01d277 0%,#081c24 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 20 3 20;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;">
     </Button>
 
 </fx:root>

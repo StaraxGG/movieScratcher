@@ -27,23 +27,33 @@
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
                         <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
                     </columnConstraints>
                     <children>
+                        <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                    <ImageView fx:id="btnReview" fitWidth="25"
+                                               preserveRatio="true">
+                                    </ImageView>
+                            <GridPane>
+                                <padding><Insets top="0" right="0" bottom="0" left="10"/></padding>
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="100.0" />
+                                </columnConstraints>
+                                <children>
+                                    <Label fx:id="lblReviews" text="75%"
+                                           style="-fx-background-color: #081c24;-fx-font: 20px Tahoma;-fx-font-smoothing-type: lcd;-fx-text-fill: #FFFFFF;
+                                            -fx-highlight-fill: derive(-fx-control-inner-background,-20%);
+                                            -fx-highlight-text-fill: -fx-text-inner-color;">
+
+                                    </Label>
+                                </children>
+                            </GridPane>
+
+                        </HBox>
                         <ImageView fx:id="btnPlus"
-                                   fitWidth="50"
+                                   fitWidth="25"
                                    preserveRatio="true"
-                                   GridPane.rowIndex="0" GridPane.columnIndex="0">
-                        </ImageView>
-                        <ImageView fx:id="btnStar"
-                                   fitWidth="50"
-                                   preserveRatio="true"
-                                   GridPane.rowIndex="0" GridPane.columnIndex="1">
-                        </ImageView>
-                        <ImageView fx:id="btnCheck"
-                                   fitWidth="50"
-                                   preserveRatio="true"
-                                   GridPane.rowIndex="0" GridPane.columnIndex="2">
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.rowSpan="3">
+
                         </ImageView>
                     </children>
                 </GridPane>

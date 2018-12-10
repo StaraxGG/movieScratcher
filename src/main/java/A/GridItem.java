@@ -3,7 +3,6 @@ package A;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,8 +27,10 @@ import java.util.ResourceBundle;
     public ImageView imgPoster;
 
     public ImageView btnPlus;
-    public ImageView btnStar;
-    public ImageView btnCheck;
+    public ImageView btnReview;
+
+    public Label lblReviews;
+
 
     public GridItem() {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
@@ -49,12 +50,25 @@ import java.util.ResourceBundle;
         }
 
     public void initialize(URL location, ResourceBundle resources) {
-        btnPlus.setImage(new Image("add.png"));
-        btnStar.setImage(new Image("star.png"));
-        btnCheck.setImage(new Image("success.png"));
+        btnPlus.setImage(new Image("add.png",25,25,true,false,true));
+        btnReview.setImage(new Image("tmdb.png",25,25,true,false,true));
     }
 
+    /**
+     * Getter Reviews
+     * @return
+     */
+    public Label getLblReviews() {
+        return lblReviews;
+    }
 
+    /**
+     * Setter Reviews
+     * @param s
+     */
+    public void setLblReviews(Float s) {
+        this.lblReviews.setText(Float.toString(s));
+    }
 
     /**
      * Getter Title
@@ -96,12 +110,8 @@ import java.util.ResourceBundle;
         return btnPlus;
     }
 
-    public ImageView getBtnStar() {
-        return btnStar;
-    }
-
-    public ImageView getBtnCheck() {
-        return btnCheck;
+    public ImageView getBtnReview() {
+        return btnReview;
     }
 
     @FXML
