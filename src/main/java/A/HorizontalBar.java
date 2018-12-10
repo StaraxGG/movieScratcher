@@ -4,12 +4,14 @@ import B.MovieDBBasic;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 
+import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -47,12 +49,16 @@ public class HorizontalBar extends HBox {
 
     public HorizontalBar(LinkedList<MovieDBBasic> movieList){
 
-        btnBack = new Button("<");
-        btnForward = new Button(">");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+                "/fxml/horizontalBar.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
-        this.getChildren().add(btnBack);
-        this.getChildren().add(movieBar);
-        this.getChildren().add(btnForward);
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
 
         items = GUITools.getGridItems(movieList);
         max = items.size();
@@ -60,19 +66,6 @@ public class HorizontalBar extends HBox {
         for(int i = 0; i<2;i++){
             movieBar.getChildren().add(items.get(i));
         }
-
-
-        btnForward.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                pushForward();
-            }
-        });
-
-        btnBack.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                pushBack();
-            }
-        });
     }
 
 
