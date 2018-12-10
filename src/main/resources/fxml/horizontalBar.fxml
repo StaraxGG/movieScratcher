@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.layout.HBox"
+         xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         maxWidth="420" prefHeight="600" style="-fx-background-color: #081c24;"
+        fx:controller="A.HorizontalBar">
+
+    <Button
+    fx:id="btnBack">
+    </Button>
+
+    <HBox fx:id="movieBar">
+
+    </HBox>
+
+
+    <Button
+    fx:id="btnForward">
+    </Button>
+
+</fx:root>

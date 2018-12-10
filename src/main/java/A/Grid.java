@@ -75,7 +75,6 @@ public class Grid extends BorderPane implements Initializable {
                 GUITools.listToGrid(hp,Grid.this);
             }
         });
-
     }
 
     public void addToGrid(Node node, int column, int row){

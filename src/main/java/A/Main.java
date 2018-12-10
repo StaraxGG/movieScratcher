@@ -2,11 +2,9 @@ package A;
 
 import B.MovieDBBasic;
 import B.MovieFachklasse;
-import com.sun.jmx.remote.internal.ArrayQueue;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.util.LinkedList;
@@ -24,12 +22,17 @@ public class Main extends Application {
         GUITools.listToGrid(hp,mainWindow);
 
 
+
         primaryStage.setTitle("Hello World");
         ScrollPane main = new ScrollPane(mainWindow);
         main.setStyle("-fx-background-color: #081c24");
 
-        primaryStage.setScene(new Scene(main, -40, -40));
-        primaryStage.sizeToScene();
+        HorizontalBar fb = new HorizontalBar(hp);
+
+
+
+        primaryStage.setScene(new Scene(fb, -40, -40));
+        //primaryStage.sizeToScene();
         //primaryStage.setMaxWidth(300);
         primaryStage.setResizable(false);
         primaryStage.show();

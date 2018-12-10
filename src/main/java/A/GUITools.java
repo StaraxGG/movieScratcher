@@ -1,6 +1,7 @@
 package A;
 
 import B.MovieDBBasic;
+import javafx.scene.layout.FlowPane;
 
 import java.util.LinkedList;
 
@@ -32,7 +33,7 @@ public class GUITools {
 
     /* ---------------------------------------- Methods ------------------------------------------------------------- */
 
-    private static LinkedList<GridItem> getGridItems(LinkedList<MovieDBBasic> mb){
+    public static LinkedList<GridItem> getGridItems(LinkedList<MovieDBBasic> mb){
         //todo change size
         LinkedList<GridItem> results = new LinkedList<GridItem>();
         for (int i=0; i<10; i++){
@@ -61,6 +62,11 @@ public class GUITools {
 
     public static void listToGrid(LinkedList<MovieDBBasic> mb,Grid window){
         fillGrid(getGridItems(mb),window);
+    }
+
+    public static void listToFlow(LinkedList<MovieDBBasic> mb, FlowPane fl){
+        LinkedList<GridItem> list = getGridItems(mb);
+        fl.getChildren().addAll(list.get(0));
     }
 
     /* ---------------------------------------- S/Getters ----------------------------------------------------------- */

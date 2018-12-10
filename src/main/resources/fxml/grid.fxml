@@ -3,15 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <fx:root type="javafx.scene.layout.BorderPane"
          xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
-         maxWidth="620" prefHeight="800" style="-fx-background-color: #081c24;">
-
+         maxWidth="420" prefHeight="600" style="-fx-background-color: #081c24;">
+        <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
     <top>
         <HBox >
             <children>
-                <TextField fx:id="txtSearch">
+                <TextField fx:id="txtSearch" >
                 </TextField>
                 <Button fx:id="btnSearch" text="Search">
                 </Button>
