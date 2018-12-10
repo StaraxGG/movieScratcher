@@ -7,13 +7,6 @@
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         prefWidth="200" style="-fx-background-color: #081c24;">
-    <top>
-        <Label fx:id="lblMovieTitle" maxWidth="Infinity" alignment="TOP_CENTER" maxHeight="Infinity"
-               style="-fx-background-color: #01d277;-fx-font: 20px Tahoma;-fx-font-smoothing-type: lcd;-fx-text-fill: -fx-text-inner-color;
-    -fx-highlight-fill: derive(-fx-control-inner-background,-20%);
-    -fx-highlight-text-fill: -fx-text-inner-color;">
-        </Label>
-    </top>
     <center>
         <ImageView
                 fx:id="imgPoster"
@@ -21,33 +14,43 @@
                 fitWidth="200"/>
     </center>
     <bottom>
-        <GridPane prefWidth="200">
-            <BorderPane.margin>
-                <Insets top="5" right="5" bottom="5" left="5" />
-            </BorderPane.margin>
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
-                <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
-                <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
-            </columnConstraints>
+        <VBox>
             <children>
-                <ImageView fx:id="btnPlus"
-                           fitWidth="50"
-                           preserveRatio="true"
-                           GridPane.rowIndex="0" GridPane.columnIndex="0">
-                </ImageView>
-                <ImageView fx:id="btnStar"
-                           fitWidth="50"
-                           preserveRatio="true"
-                           GridPane.rowIndex="0" GridPane.columnIndex="1">
-                </ImageView>
-                <ImageView fx:id="btnCheck"
-                           fitWidth="50"
-                           preserveRatio="true"
-                           GridPane.rowIndex="0" GridPane.columnIndex="2">
-                </ImageView>
+                <Label fx:id="lblMovieTitle" maxWidth="Infinity" alignment="TOP_CENTER" maxHeight="Infinity"
+                       style="-fx-background-color: #081c24;-fx-font: 15px Tahoma;-fx-font-smoothing-type: lcd;-fx-text-fill: #FFFFFF;
+    -fx-highlight-fill: derive(-fx-control-inner-background,-20%);
+    -fx-highlight-text-fill: -fx-text-inner-color;">
+                    <padding><Insets top="10" right="10" bottom="0" left="10"/></padding>
+                </Label>
+                <GridPane prefWidth="200">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0" />
+                    </columnConstraints>
+                    <children>
+                        <ImageView fx:id="btnPlus"
+                                   fitWidth="50"
+                                   preserveRatio="true"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0">
+                        </ImageView>
+                        <ImageView fx:id="btnStar"
+                                   fitWidth="50"
+                                   preserveRatio="true"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1">
+                        </ImageView>
+                        <ImageView fx:id="btnCheck"
+                                   fitWidth="50"
+                                   preserveRatio="true"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="2">
+                        </ImageView>
+                    </children>
+                </GridPane>
             </children>
-        </GridPane>
+
+        </VBox>
+
     </bottom>
 </fx:root>
 

@@ -42,6 +42,10 @@ import java.util.ResourceBundle;
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
             }
+
+            lblMovieTitle.setWrapText(true);
+            lblMovieTitle.setMaxHeight(50);
+            this.autosize();
         }
 
     public void initialize(URL location, ResourceBundle resources) {

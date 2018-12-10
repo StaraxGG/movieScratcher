@@ -6,7 +6,7 @@
 <fx:root type="javafx.scene.layout.HBox"
          xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
-         maxWidth="420" prefHeight="400" style="-fx-background-color: #081c24;">
+         maxWidth="420" style="-fx-background-color: #081c24;">
 
     <Button
     fx:id="btnBack" text="w" onAction="#pushBack">
