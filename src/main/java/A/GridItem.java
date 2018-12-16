@@ -33,6 +33,7 @@ import java.util.ResourceBundle;
 
 
     public GridItem() {
+            super();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                     "/fxml/gridItem.fxml"));
             fxmlLoader.setRoot(this);

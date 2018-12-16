@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+
+<fx:root type="javafx.scene.layout.HBox"
+         xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         maxWidth="Infinity" maxHeight="900" style="-fx-background-color: #081c24;">
+    <children>
+        <HBox fx:id="header">
+            <Button fx:id="btnLists" text="Lists">
+            </Button>
+            <TextField fx:id="txtSearch">
+
+            </TextField>
+            <Button fx:id="btnSearch" text="Search">
+            </Button>
+        </HBox>
+        <ScrollPane fx:id="scrollPane">
+            <VBox fx:id="movieColumn">
+            </VBox>
+        </ScrollPane>
+    </children>
+</fx:root>

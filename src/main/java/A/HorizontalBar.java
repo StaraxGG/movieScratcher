@@ -1,18 +1,16 @@
 package A;
 
 import B.MovieDBBasic;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Orientation;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.LinkedList;
+import java.util.ResourceBundle;
 
 /**
  * An implementation of HorizontalBar
@@ -22,7 +20,7 @@ import java.util.LinkedList;
  * @version 1.0
  * @since 2018-Dez-10
  */
-public class HorizontalBar extends HBox {
+public class HorizontalBar extends HBox implements Initializable {
 
     /* ---------------------------------------- Main ---------------------------------------------------------------- */
 
@@ -35,7 +33,12 @@ public class HorizontalBar extends HBox {
     @FXML
     private Button btnForward;
 
-    private LinkedList<GridItem> items;
+    private LinkedList<MovieDBBasic> movieList;
+    private LinkedList<GridItem> gridItemList;
+
+    private ObservableQueue observableQueue;
+
+
     private int max;
 
     @FXML
@@ -48,7 +51,8 @@ public class HorizontalBar extends HBox {
     /* ---------------------------------------- Constructors -------------------------------------------------------- */
 
     public HorizontalBar(LinkedList<MovieDBBasic> movieList){
-
+        super();
+        this.movieList = movieList;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/fxml/horizontalBar.fxml"));
         fxmlLoader.setRoot(this);
@@ -60,50 +64,31 @@ public class HorizontalBar extends HBox {
             throw new RuntimeException(exception);
         }
 
-        items = GUITools.getGridItems(movieList);
-        max = items.size();
 
-        if(max<5){
-            for(int i = 0; i<max;i++){
-                movieBar.getChildren().add(items.get(i));
-            }
-        }
-        for(int i = 0; i<5;i++){
-            movieBar.getChildren().add(items.get(i));
-        }
 
     }
 
+    //if private @fxml is required
+    public void initialize(URL location, ResourceBundle resources) {
+        gridItemList = GUITools.getGridItems(movieList);
+        max = gridItemList.size();
+
+        observableQueue = new ObservableQueue(gridItemList);
+
+        movieBar.getChildren().addAll(observableQueue.getDisplayedList());
+    }
 
     /* ---------------------------------------- Methods ------------------------------------------------------------- */
 
     public void pushForward(){
-        index++;
-        int endIndex = index + 5;
-
-        if(endIndex < max){
-            movieBar.getChildren().clear();
-            for(int i = index; i<endIndex;i++){
-                movieBar.getChildren().add(items.get(i));
-            }
-        }
-        else if (!(max-index < 5)){
-            movieBar.getChildren().clear();
-            for(int i = index; i<(max);i++){
-
-                movieBar.getChildren().add(items.get(i));
-            }
-        }
+        movieBar.getChildren().clear();
+        movieBar.getChildren().addAll(observableQueue.push());
     }
 
+    //todo fix the STILL weired stuff
     public void pushBack(){
-        if(index-1 >= 0){
-            movieBar.getChildren().clear();
-            index--;
-            for(int i = index; i<(index+5);i++){
-                movieBar.getChildren().add(items.get(i));
-            }
-        }
+        movieBar.getChildren().clear();
+        movieBar.getChildren().addAll(observableQueue.pop());
     }
 
     /* ---------------------------------------- S/Getters ----------------------------------------------------------- */

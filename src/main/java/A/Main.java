@@ -33,11 +33,13 @@ public class Main extends Application {
         ScrollPane main = new ScrollPane(mainWindow);
         main.setStyle("-fx-background-color: #081c24");
 
-        HorizontalBar hbhp = new HorizontalBar(hp);
-        HorizontalBar hbbo = new HorizontalBar(bo);
-        HorizontalBar hbhdr = new HorizontalBar(hdr);
 
-        final VBox netflix = new VBox(hbhp,hbbo,hbhdr);
+        HorizontalBar hbhp = new HorizontalBar(hp);
+
+        HorizontalBar hb2 = new HorizontalBar(bo);
+        HorizontalBar hb3 = new HorizontalBar(hdr);
+/*
+        final VBox netflix = new VBox(hbhp);
 
         final ScrollPane netflixScroll = new ScrollPane(netflix);
 
@@ -56,8 +58,13 @@ public class Main extends Application {
         netflixScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
 
+        */
+        DiscoverScreen discoverScreen = new DiscoverScreen();
+        discoverScreen.addRow("Harry Potter",hbhp);
+        discoverScreen.addRow("Bourne",hb2);
+        discoverScreen.addRow("Harry Potter",hb3);
 
-        primaryStage.setScene(new Scene(netflixScroll, -40, 900));
+        primaryStage.setScene(new Scene(discoverScreen, -40, 900));
         //primaryStage.sizeToScene();
         //primaryStage.setMaxWidth(300);
         primaryStage.setResizable(false);
